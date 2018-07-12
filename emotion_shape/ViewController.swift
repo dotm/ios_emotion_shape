@@ -23,10 +23,11 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var square: UIView!
     @IBAction func doAnimation(_ sender: UITapGestureRecognizer) {
-        UIView.animate(withDuration: 0.5) {
+        square.backgroundColor = UIColor(red: 255/255, green: 208/255, blue: 140/255, alpha: 1)
+        UIView.animate(withDuration: 0.3) {
             self.view.backgroundColor = UIColor(red: 124/255, green: 124/255, blue: 108/255, alpha: 1)
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
                 UIView.animate(withDuration: 1, animations: {
                     self.view.backgroundColor = UIColor(red: 36/255, green: 52/255, blue: 60/255, alpha: 1)
                 })
@@ -60,7 +61,7 @@ class ViewController: UIViewController {
         view.addSubview(bubbleView)
     }
     func generateBubbles(){
-        var _ = Timer.scheduledTimer(timeInterval: 0.3, target: self, selector: #selector(makeBubbleDrop), userInfo: nil, repeats: true)
+        var _ = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(makeBubbleDrop), userInfo: nil, repeats: true)
     }
     @objc func makeBubbleDrop(){
         let diameter = 15
